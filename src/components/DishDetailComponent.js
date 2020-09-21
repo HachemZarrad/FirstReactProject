@@ -28,43 +28,47 @@ import { Card, CardImg, CardText, CardBody,CardImgOverlay,Media,
           return (
             <div >
                         
-                        <div key={comment.id} className='row m-1'>
-                            <p>{comment.comment}</p>
-                            <p>--{comment.author}, {new Date(comment.date).toDateString()}</p>
-                        </div>
+                <div key={comment.id}>
+                     <p>{comment.comment}</p>
+                     <p>--{comment.author}, {new Intl.DateTimeFormat('en-US', 
+                     { year: 'numeric',
+                      month: 'short', 
+                      day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</p>
+                </div>
                    
-                      </div>
+             </div>
           )
         });
         if (comments){
             return (
-                <div className="col-12 col-md-12 row">
-                  <h4 className="m-1">Comments</h4>
+                <div className="col-12 col-md-12">
+                  <h4>Comments</h4>
                   {comments}
                 </div>
               );
         }
         else{
             return(
-                <div></div>
+                <div><h1></h1></div>
             );
         }
           
     }
 
       render(){
-            const dish = this.props.selectedDish;
+            const dish = this.props.dish;
             if(dish){
               return(
-                <div className="row">
-                    
+                <div className="container ">
+                    <div className="row">
                     <div className="col-12 col-md-5 m-1">
                         {this.renderDish(dish)}
-                        </div>
+                    </div>
+
                     <div className="col-12 col-md-5">
                         {this.renderComments(dish)}
                     </div>
-
+                 </div>
                 </div>
             );
             }
