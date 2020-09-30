@@ -34,13 +34,6 @@ class Main extends Component {
 
   render() {
 
-
-    const AboutPage = () => {
-      return(
-          <About leaders = {this.state.leaders}></About>
-      );
-    }
-
     const HomePage = () => {
       return(
           <Home 
