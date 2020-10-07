@@ -28,12 +28,10 @@ class CommentForm extends Component {
       }
 
 
-      
     handleSubmit(values) {
-        alert('Current State is: ' + JSON.stringify(values));
+        this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
         
     }
-
 
     render() {
         return(
@@ -118,7 +116,7 @@ class CommentForm extends Component {
 
       }
 
-      function RenderComments({comments}) {
+      function RenderComments({comments, addComment, dishId}) {
           if(comments)
           return (
                 <div className="col-12 col-md-12">
@@ -137,7 +135,7 @@ class CommentForm extends Component {
                       
                   }))}
                     </ul> 
-                    <CommentForm/>
+                    <CommentForm dishId={dishId} addComment={addComment}/>
                    </div>
                   );
            else
@@ -147,7 +145,6 @@ class CommentForm extends Component {
        
         }
        
-    
     
 
     const  DishDetail = (props) => {
@@ -171,7 +168,9 @@ class CommentForm extends Component {
                             <RenderDish dish={props.dish} />
                         </div>
                         <div className="col-12 col-md-5 m-1">
-                            <RenderComments comments={props.comments} />
+                            <RenderComments comments={props.comments}
+                                addComment={props.addComment}
+                                dishId={props.dish.id} />
                         </div>
                     </div>
                     </div>
