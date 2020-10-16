@@ -59,7 +59,13 @@ function LeaderList(props) {
 function About(props) {
 
     return(
+        <div >
+         <div className = "marginBack">
+             <img src="assets/images/h4.jpg" height="900" width="1600"
+                                /> 
+            </div>
         <div className="container">
+        
             <div className="row">
                 <Breadcrumb>
                     <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
@@ -110,10 +116,11 @@ function About(props) {
             </div>
             <div className="row row-content">
                 <div className="col-12">
-                    <h2>Corporate Leadership</h2>
+                    <h2>Staff</h2>
                 </div>
                 <LeaderList leaders={props.leaders} />
             </div>
+         </div>
         </div>
     );
 }

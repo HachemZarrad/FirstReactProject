@@ -47,6 +47,11 @@ import { baseUrl } from '../shared/baseUrl';
         }
         else
             return (
+                <div>
+                 <div className = "marginBack">
+                    <img src="assets/images/h7.jpg" height="900" width="1600"
+                                /> 
+                 </div>
                 <div className="container">
                     <div className="row">
                         <Breadcrumb>
@@ -61,6 +66,7 @@ import { baseUrl } from '../shared/baseUrl';
                     <div className="row">
                         {menu}
                     </div>
+                 </div>
                 </div>
             );
     }

@@ -25,6 +25,11 @@ class Contact extends Component {
 
     render() {
         return(
+          <div>
+                 <div className = "marginBack">
+                    <img src="assets/images/h5.jpg" height="900" width="1600"
+                                /> 
+                 </div>
             <div className="container">
                 <div className="row">
                     <Breadcrumb>
@@ -193,6 +198,7 @@ class Contact extends Component {
                         </Form>
                     </div>
                 </div>
+             </div>
             </div>
         );
     }

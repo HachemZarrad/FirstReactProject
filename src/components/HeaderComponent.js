@@ -43,46 +43,55 @@ class Header extends Component {
 
     render() {
         return(
+          
+             
             <React.Fragment>
-                <Navbar dark expand="md">
+            <Navbar  expand="md">
                     <div className="container">
                         <NavbarToggler onClick={this.toggleNav} />
                         <NavbarBrand className="mr-auto" href="/">
-                            <img src="assets/images/logo.png" height="30" width="41"
-                                alt="Ristorante Con Fusion" />
+                            <div >
+                                <img src="assets/images/g.png" height="100" width="300"
+                                 alt="Ristorante Con Fusion" />
+                            </div>
                         </NavbarBrand>
                         <Collapse isOpen={this.state.isNavOpen} navbar>
-                            <Nav navbar>
+                            <Nav navbar className="ml-auto">
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/home">
-                                        <span className="fa fa-home fa-lg"></span> Home
+                                    <NavLink className="nav-link menuColor" to="/home">
+                                        <span className="fa fa-home fa-lg menuColor"></span> Order Now
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/aboutus">
-                                        <span className="fa fa-info fa-lg"></span> About Us
+                                    <NavLink className="nav-link menuColor" to="/home">
+                                        <span className="fa fa-home fa-lg menuColor"></span> Home
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/menu">
-                                        <span className="fa fa-list fa-lg"></span> Menu
+                                    <NavLink className="nav-link menuColor" to="/aboutus">
+                                        <span className="fa fa-info fa-lg menuColor"></span> About Us
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/favorites">
-                                        <span className="fa fa-heart fa-lg"></span> My Favorites
+                                    <NavLink className="nav-link menuColor" to="/menu">
+                                        <span className="fa fa-list fa-lg menuColor"></span> Menu
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/contactus">
-                                        <span className="fa fa-address-card fa-lg"></span> Contact Us
+                                    <NavLink className="nav-link menuColor" to="/favorites">
+                                        <span className="fa fa-heart fa-lg menuColor"></span> My Favorites
+                                    </NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink className="nav-link menuColor" to="/contactus">
+                                        <span className="fa fa-address-card fa-lg menuColor"></span> Contact Us
                                     </NavLink>
                                 </NavItem>
                             </Nav>
-                            <Nav className="ml-auto" navbar>
+                            <Nav navbar>
                                 <NavItem>
                                     { !this.props.auth.isAuthenticated ?
-                                        <Button outline onClick={this.toggleModal}>
+                                        <Button outline onClick={this.toggleModal} className = "loginButton">
                                             <span className="fa fa-sign-in fa-lg"></span> Login
                                             {this.props.auth.isFetching ?
                                                 <span className="fa fa-spinner fa-pulse fa-fw"></span>
@@ -107,7 +116,9 @@ class Header extends Component {
                         </Collapse>
                     </div>
                 </Navbar>
-                <Jumbotron>
+            
+            
+                {/* <Jumbotron>
                     <div className="container">
                         <div className="row row-header">
                             <div className="col-12 col-sm-6">
@@ -116,7 +127,7 @@ class Header extends Component {
                             </div>
                         </div>
                     </div>
-                </Jumbotron>
+                </Jumbotron> */}
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>
                     <ModalBody>
@@ -143,6 +154,7 @@ class Header extends Component {
                     </ModalBody>
                 </Modal>
             </React.Fragment>
+            
         );
     }
 }

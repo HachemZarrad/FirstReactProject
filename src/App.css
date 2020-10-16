@@ -30,7 +30,7 @@ address{
 }
 
 .navbar-dark {
-    background-color: #512DA8;
+    background-color: #a68f71;
 }
 
 .button-margin {
@@ -61,4 +61,55 @@ address{
     opacity: 0.01;
     transform: translateX(100%);
     transition: all 300ms ease-out;
+}
+
+.homePage{
+    margin-top: -1px;
+}
+
+.menuColor{
+    color: azure;
+}
+
+.footerMenuColor{
+    color: #000;
+}
+
+.marginFooterMenu{
+    margin-left: 200px;
+    margin-top: 50px;
+}
+
+.marginCopyright{
+    margin-left: 30px;
+}
+
+.marginThree{
+    margin-top: 200px;
+}
+
+.marginBack{
+    margin-top: -150px;
+}
+
+.marginAbout{
+    margin-top: -150px;
+    margin-right: 200px;
+}
+
+.reservationButton{
+    margin-left: 600px;
+    margin-top: 400px;
+    width: 300px;
+    height: 60px;
+    font-style: italic;
+    font-weight: bolder;
+    font-size: large;
+    background-color: burlywood;
+    border-radius: 100px;
+}
+
+.loginButton{
+    background-color: burlywood;
+    color: white;
 }
