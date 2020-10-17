@@ -47,7 +47,7 @@ import { baseUrl } from '../shared/baseUrl';
         }
         else
             return (
-                <div>
+                <div className = "menuBackground">
                  <div className = "marginBack">
                     <img src="assets/images/h7.jpg" height="900" width="1600"
                                 /> 

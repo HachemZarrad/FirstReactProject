@@ -1,13 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { Breadcrumb, BreadcrumbItem, Button, Label, Col, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Control, Form, Errors } from 'react-redux-form';
+
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => (val) && (val.length >= len);
 const isNumber = (val) => !isNaN(Number(val));
 const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
+
+
 
 class Contact extends Component {
 
@@ -17,6 +20,8 @@ class Contact extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+   
+
     handleSubmit(values) {
         console.log("Current State is: " + JSON.stringify(values));
         this.props.postFeedback(values);
@@ -24,6 +29,7 @@ class Contact extends Component {
     }
 
     render() {
+        
         return(
           <div>
                  <div className = "marginBack">
@@ -140,6 +146,7 @@ class Contact extends Component {
                                      />
                                 </Col>
                             </Row>
+                             
                             <Row className="form-group">
                                 <Label htmlFor="email" md={2}>Email</Label>
                                 <Col md={10}>

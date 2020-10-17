@@ -12,7 +12,7 @@ import { connect } from 'react-redux';
 import { postComment, postFeedback, fetchDishes, fetchComments, fetchPromos, fetchLeaders, loginUser, logoutUser, fetchFavorites, postFavorite, deleteFavorite } from '../redux/ActionCreators';
 import { actions } from 'react-redux-form';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import Reservation from './Reservation';
+import Reservation from './ReservationComponent';
 
 const mapStateToProps = state => {
     return {
