@@ -1,14 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
-    Button, Modal, ModalHeader, ModalBody,
-    Form, FormGroup, Input, Label } from 'reactstrap';
+import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem
+    } from 'reactstrap';
     import { NavLink } from 'react-router-dom';
 
 function Footer(props) {
     return(
-        <div >
-            <Navbar  expand="md">
+        <div className="footer">
+            <Navbar  expand="md" >
                     <div className="container">
                         <NavbarToggler  />
                         <NavbarBrand  href="/">
@@ -20,23 +18,23 @@ function Footer(props) {
                         <Collapse  navbar>
                             <Nav navbar className="mr-auto marginFooterMenu">
                                 <NavItem>
-                                    <NavLink className="nav-link footerMenuColor" to="/home"> 
+                                    <NavLink className="nav-link menuColor" to="/reservation"> 
                                        Home
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link footerMenuColor" to="/aboutus">
+                                    <NavLink className="nav-link menuColor" to="/reservation">
                                          About Us
                                     </NavLink>
                                 </NavItem>
                                 
                                 <NavItem>
-                                    <NavLink className="nav-link footerMenuColor" to="/menu">
+                                    <NavLink className="nav-link menuColor" to="/reservation">
                                          Menu
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link footerMenuColor" to="/favorites">
+                                    <NavLink className="nav-link menuColor" to="/reservation">
                                        My Favorites
                                     </NavLink>
                                 </NavItem>

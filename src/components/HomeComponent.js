@@ -38,7 +38,7 @@ function Home(props) {
     return(
         <div >     
         <div>
-          <Button className = "reservationButton ">Make A Reservation</Button>
+          <Button className = "reservationButton">Make A Reservation</Button>
           <video 
             autoPlay
             loop

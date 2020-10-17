@@ -12,6 +12,7 @@ import { connect } from 'react-redux';
 import { postComment, postFeedback, fetchDishes, fetchComments, fetchPromos, fetchLeaders, loginUser, logoutUser, fetchFavorites, postFavorite, deleteFavorite } from '../redux/ActionCreators';
 import { actions } from 'react-redux-form';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import Reservation from './Reservation';
 
 const mapStateToProps = state => {
     return {
@@ -113,12 +114,14 @@ class Main extends Component {
           <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
             <Switch>
               <Route path="/home" component={HomePage} />
+              <Route path="/reservation" component={() => <Reservation />} />
               <Route exact path='/aboutus' component={() => <About leaders={this.props.leaders} />}  />
               <Route exact path="/menu" component={() => <Menu dishes={this.props.dishes} />} />
               <Route path="/menu/:dishId" component={DishWithId} />
               <PrivateRoute exact path="/favorites" component={() => <Favorites favorites={this.props.favorites} deleteFavorite={this.props.deleteFavorite} />} />
               <Route exact path="/contactus" component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} postFeedback={this.props.postFeedback} />} />
               <Redirect to="/home" />
+             
             </Switch>
           </CSSTransition>
         </TransitionGroup>
