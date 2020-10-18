@@ -151,7 +151,7 @@ import { FadeTransform, Fade, Stagger } from 'react-animation-components';
         }
         else if (props.dish != null)        
             return (
-                <div className="container menuBackground">
+                <div className="container">
                     <div className="row">
                         <Breadcrumb>
                             <BreadcrumbItem><Link to='/menu'>Menu</Link></BreadcrumbItem>

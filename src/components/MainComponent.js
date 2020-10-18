@@ -13,6 +13,7 @@ import { postComment, postFeedback, fetchDishes, fetchComments, fetchPromos, fet
 import { actions } from 'react-redux-form';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Reservation from './ReservationComponent';
+import Order from './OrderingComponent';
 
 const mapStateToProps = state => {
     return {
@@ -115,6 +116,7 @@ class Main extends Component {
             <Switch>
               <Route path="/home" component={HomePage} />
               <Route path="/reservation" component={() => <Reservation />} />
+              <Route path="/order" component={() => <Order />} />
               <Route exact path='/aboutus' component={() => <About leaders={this.props.leaders} />}  />
               <Route exact path="/menu" component={() => <Menu dishes={this.props.dishes} />} />
               <Route path="/menu/:dishId" component={DishWithId} />

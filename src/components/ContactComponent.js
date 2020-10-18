@@ -20,7 +20,7 @@ class Contact extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-   
+
 
     handleSubmit(values) {
         console.log("Current State is: " + JSON.stringify(values));
@@ -33,8 +33,8 @@ class Contact extends Component {
         return(
           <div>
                  <div className = "marginBack">
-                    <img src="assets/images/h5.jpg" height="900" width="1600"
-                                /> 
+                    <img src="assets/images/h5.jpg" height="900" width="1600"/> 
+                    <h1 className = "bigTitles">Contact Us</h1>
                  </div>
             <div className="container">
                 <div className="row">

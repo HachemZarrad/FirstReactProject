@@ -10,7 +10,7 @@ const minLength = (len) => (val) => (val) && (val.length >= len);
 const isNumber = (val) => !isNaN(Number(val));
 const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
 
-function Reservation()  {
+function Ordering()  {
 
 
         const [selectedDate, setSelectedDate] = useState(null);
@@ -21,8 +21,8 @@ function Reservation()  {
                                 /> 
                  </div>
               <div className="col-12 col-md-3 ReservationText">
-                    <h1>Reservations</h1>
-                    <p className="ReserText">For parties of six or more, we recommend making reservations at least two weeks in advance. For walk-ins, we only seat parties on a first come, first served basis.</p>
+                    <h1>Orders</h1>
+                    <p className="ReserText">Some areas.....</p>
               </div>
               <div className="col-12 col-md-6 ReservationForm">
                         <Form model="feedback" onSubmit={(values) => this.handleSubmit(values)}>
@@ -93,9 +93,30 @@ function Reservation()  {
                                      />
                                 </Col>
                             </Row>
+                            <Row className="form-group ">
+                                <Label htmlFor="city" md={3}>City*</Label>
+                                <Col md={10}>
+                                    <Control.text model=".email" id="email" name="email"
+                                      
+                                        className="form-control input"
+                                        validators={{
+                                            required, validEmail
+                                        }}
+                                         />
+                                    <Errors
+                                        className="text-danger"
+                                        model=".email"
+                                        show="touched"
+                                        messages={{
+                                            required: 'Required',
+                                            validEmail: 'Invalid Email Address'
+                                        }}
+                                     />
+                                </Col>
+                            </Row>
                              
                             <Row className="form-group ">
-                                <Label htmlFor="email" md={3}>Email Address</Label>
+                                <Label htmlFor="email" md={3}>Address*</Label>
                                 <Col md={10}>
                                     <Control.text model=".email" id="email" name="email"
                                       
@@ -130,28 +151,6 @@ function Reservation()  {
                                 </Col>
                             </Row>
                             
-                            <Row className="form-group ">
-                                <Label htmlFor="email" md={3}>Number Of Guests*</Label>
-                                <Col md={10}>
-                                    <Control.text model=".email" id="email" name="email"
-                                      
-                                        className="form-control input"
-                                        validators={{
-                                            required, validEmail
-                                        }}
-                                         />
-                                    <Errors
-                                        className="text-danger"
-                                        model=".email"
-                                        show="touched"
-                                        messages={{
-                                            required: 'Required',
-                                            validEmail: 'Invalid Email Address'
-                                        }}
-                                     />
-                                </Col>
-                            </Row>
-                            
                             <Row className="form-group">
                                 <Label htmlFor="email" md={3}>Comments</Label>
                                 <Col md={10}>
@@ -178,21 +177,17 @@ function Reservation()  {
                             <Row className="form-group">
                                 <Col md={{size:10}}>
                                     <Button type="submit" color="primary">
-                                    SUBMIT
+                                    ORDER
                                     </Button>
                                 </Col>
                             </Row>
                         </Form>
                     </div>
-                </div>
-             
-            
-                
-            
+                </div>          
            
         );
     }
 
 
 
-export default Reservation;
+export default Ordering;

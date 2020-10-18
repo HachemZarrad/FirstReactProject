@@ -169,3 +169,20 @@ address{
 .ReserText{
     font-size: small;
 }
+
+.bigTitles{
+    margin-left: 500px;
+    margin-top: -500px;
+    margin-bottom: 500px;
+    font-size: 100px;
+    color: #ffffff;
+}
+
+.menuTitle{
+    margin-left: 660px;
+    margin-top: -500px;
+    margin-bottom: 500px;
+    font-size: 100px;
+    color: #ffffff;
+}
+

@@ -60,11 +60,13 @@ function About(props) {
 
     return(
         <div >
-         <div className = "marginBack">
-             <img src="assets/images/h4.jpg" height="900" width="1600"
-                                /> 
-            </div>
-        <div className="container">
+          <div className = "marginBack">
+             <img src="assets/images/h4.jpg" height="900" width="1600"/> 
+             
+             <h1 className = "bigTitles">About Us</h1>
+             
+          </div>
+          <div className="container">
         
             <div className="row">
                 <Breadcrumb>

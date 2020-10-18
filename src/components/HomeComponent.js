@@ -34,6 +34,7 @@ function RenderCard({item, isLoading, errMess}) {
         );
 }
 
+//onClick = () => this.props.history.push("/Reservation");
 function Home(props) {
     return(
         <div >     

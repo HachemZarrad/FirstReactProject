@@ -58,33 +58,33 @@ class Header extends Component {
                         <Collapse isOpen={this.state.isNavOpen} navbar>
                             <Nav navbar className="ml-auto">
                                 <NavItem>
-                                    <NavLink className="nav-link menuColor" to="/home">
-                                        <span className="fa fa-home fa-lg menuColor"></span> Order Now
+                                    <NavLink className="nav-link menuColor" to="/order">
+                                         Order Now
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink className="nav-link menuColor" to="/home">
-                                        <span className="fa fa-home fa-lg menuColor"></span> Home
+                                         Home
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink className="nav-link menuColor" to="/aboutus">
-                                        <span className="fa fa-info fa-lg menuColor"></span> About Us
+                                        About Us
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink className="nav-link menuColor" to="/menu">
-                                        <span className="fa fa-list fa-lg menuColor"></span> Menu
+                                         Menu
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink className="nav-link menuColor" to="/favorites">
-                                        <span className="fa fa-heart fa-lg menuColor"></span> My Favorites
+                                        My Favorites
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink className="nav-link menuColor" to="/contactus">
-                                        <span className="fa fa-address-card fa-lg menuColor"></span> Contact Us
+                                         Contact Us
                                     </NavLink>
                                 </NavItem>
                             </Nav>
