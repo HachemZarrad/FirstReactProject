@@ -149,6 +149,14 @@ address{
     margin-left: 190px;
 }
 
+.marginTime{
+    margin-left: 140px;
+}
+
+.marginDate{
+    margin-left: -10px;
+}
+
 .marginFirstName{
     margin-left: -14px;
 }
@@ -184,5 +192,11 @@ address{
     margin-bottom: 500px;
     font-size: 100px;
     color: #ffffff;
+}
+
+.try{
+    color: #a68f71;
+    font-weight: bold;
+    font-style: italic;
 }
 

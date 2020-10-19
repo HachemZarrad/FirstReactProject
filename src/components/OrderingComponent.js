@@ -138,16 +138,23 @@ function Ordering()  {
                             </Row>
                             
                             <Row className="form-group marginDatePicker">
-                                  <Label htmlFor="Date" md={3}>Date*</Label>
+                                  <Label htmlFor="Time" md={3}>Time*</Label>
                                   <Col md={10}>
-                                  <DatePicker
-                                      className = " input"
-                                      selected = {selectedDate}
-                                      onChange = {date => setSelectedDate(date)}
-                                      dateFormat = 'dd/MM/yyyy'
-                                      minDate = {new Date()}
-                                      isClearable
-                                      />
+                                  <Control.select model=".time" id="time" className=" form-control input">
+                                            <option disabled className = "try">Lunch</option>
+                                            <option >12:00 pm</option>
+                                            <option>1:00 pm</option>
+                                            <option>2:00 pm</option>
+                                            <option>3:00 pm</option>
+                                            <span>sdffqs</span>
+                                            <option disabled className = "try">Dinner</option>
+                                            <option>6:00 pm</option>
+                                            <option>7:00 pm</option>
+                                            <option>8:00 pm</option>
+                                            <option>9:00 pm</option>
+                                            <option>10:00 pm</option>
+                                            <option>11:00 pm</option>
+                                    </Control.select>
                                 </Col>
                             </Row>
                             

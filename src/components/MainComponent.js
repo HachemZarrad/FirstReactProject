@@ -9,7 +9,9 @@ import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { postComment, postFeedback, fetchDishes, fetchComments, fetchPromos, fetchLeaders, loginUser, logoutUser, fetchFavorites, postFavorite, deleteFavorite } from '../redux/ActionCreators';
+import { postComment, postFeedback, fetchDishes, fetchComments, fetchPromos, 
+   fetchLeaders, loginUser, logoutUser, fetchFavorites,
+   postFavorite, deleteFavorite, fetchFoodOrders, fetchReservations, postFoodOrder, postReservation } from '../redux/ActionCreators';
 import { actions } from 'react-redux-form';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Reservation from './ReservationComponent';
@@ -22,6 +24,8 @@ const mapStateToProps = state => {
       promotions: state.promotions,
       leaders: state.leaders,
       favorites: state.favorites,
+      foodOrders: state.foodOrders,
+      reservations: state.reservation,
       auth: state.auth
     }
 }
@@ -38,7 +42,10 @@ const mapDispatchToProps = (dispatch) => ({
   logoutUser: () => dispatch(logoutUser()),
   fetchFavorites: () => dispatch(fetchFavorites()),
   postFavorite: (dishId) => dispatch(postFavorite(dishId)),
-  deleteFavorite: (dishId) => dispatch(deleteFavorite(dishId))
+  deleteFavorite: (dishId) => dispatch(deleteFavorite(dishId)),
+  fetchFoodOrders: () => {dispatch(fetchFoodOrders())},
+  fetchReservations: () => {dispatch(fetchReservations())}
+
 });
 
 class Main extends Component {
@@ -49,6 +56,8 @@ class Main extends Component {
     this.props.fetchPromos();
     this.props.fetchLeaders();
     this.props.fetchFavorites();
+    this.props.fetchFoodOrders();
+    this.props.fetchReservations();
   }
 
   render() {

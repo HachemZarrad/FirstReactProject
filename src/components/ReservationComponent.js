@@ -115,12 +115,13 @@ function Reservation()  {
                                      />
                                 </Col>
                             </Row>
-                            
+                            <Label htmlFor="Date" md={2} className = "marginDate">Date*</Label>
+                            <Label htmlFor="Time" md={2} className = "marginTime">Time*</Label>
                             <Row className="form-group marginDatePicker">
-                                  <Label htmlFor="Date" md={3}>Date*</Label>
-                                  <Col md={10}>
+                                  
+                                  <Col md={5}>
                                   <DatePicker
-                                      className = " input"
+                                      className = "form-control input "
                                       selected = {selectedDate}
                                       onChange = {date => setSelectedDate(date)}
                                       dateFormat = 'dd/MM/yyyy'
@@ -128,6 +129,33 @@ function Reservation()  {
                                       isClearable
                                       />
                                 </Col>
+                                <Col md={5}>
+                                    <Control.select model=".time" id="time" className=" form-control input">
+                                            <option disabled className = "try">Lunch</option>
+                                            <option >12:00 pm</option>
+                                            <option>1:00 pm</option>
+                                            <option>2:00 pm</option>
+                                            <option>3:00 pm</option>
+                                            <span>sdffqs</span>
+                                            <option disabled className = "try">Dinner</option>
+                                            <option>6:00 pm</option>
+                                            <option>7:00 pm</option>
+                                            <option>8:00 pm</option>
+                                            <option>9:00 pm</option>
+                                            <option>10:00 pm</option>
+                                            <option>11:00 pm</option>
+                                    </Control.select>
+                                    <Errors
+                                        className="text-danger"
+                                        model=".email"
+                                        show="touched"
+                                        messages={{
+                                            required: 'Required',
+                                            validEmail: 'Invalid Email Address'
+                                        }}
+                                     />
+                                </Col>
+
                             </Row>
                             
                             <Row className="form-group ">

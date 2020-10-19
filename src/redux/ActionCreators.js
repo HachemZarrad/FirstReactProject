@@ -399,3 +399,81 @@ export const addFavorites = (favorites) => ({
     type: ActionTypes.ADD_FAVORITES,
     payload: favorites
 });
+
+
+export const fetchFoodOrders = () => (dispatch) => {
+    dispatch(foodOrdersLoading(true));
+
+    return fetch(baseUrl + 'orderFood')
+        .then(response => {
+            if (response.ok) {
+                return response;
+            }
+            else {
+                var error = new Error('Error ' + response.status + ': ' + response.statusText);
+                error.response = response;
+                throw error;
+            }
+        },
+        error => {
+            var errmess = new Error(error.message);
+            throw errmess;
+        })
+        .then(response => response.json())
+        .then(foodOrders => dispatch(addFoodOrders(foodOrders)))
+        .catch(error => dispatch(foodOrdersFailed(error.message)));
+}
+
+
+export const foodOrdersLoading = () => ({
+    type: ActionTypes.FOOD_ORDERS_LOADING
+});
+
+export const foodOrdersFailed = (errmess) => ({
+    type: ActionTypes.FOOD_ORDERS_FAILED,
+    payload: errmess
+});
+
+export const addFoodOrders = (foodOrders) => ({
+    type: ActionTypes.ADD_FOOD_ORDERS,
+    payload: foodOrders
+});
+
+
+export const fetchReservations = () => (dispatch) => {
+    dispatch(reservationsLoading(true));
+
+    return fetch(baseUrl + 'booking')
+        .then(response => {
+            if (response.ok) {
+                return response;
+            }
+            else {
+                var error = new Error('Error ' + response.status + ': ' + response.statusText);
+                error.response = response;
+                throw error;
+            }
+        },
+        error => {
+            var errmess = new Error(error.message);
+            throw errmess;
+        })
+        .then(response => response.json())
+        .then(reservations => dispatch(addReservations(reservations)))
+        .catch(error => dispatch(reservationsFailed(error.message)));
+}
+
+
+export const reservationsLoading = () => ({
+    type: ActionTypes.RESERVATIONS_LOADING
+});
+
+export const reservationsFailed = (errmess) => ({
+    type: ActionTypes.RESERVATIONS_FAILED,
+    payload: errmess
+});
+
+export const addReservations = (reservations) => ({
+    type: ActionTypes.ADD_RESERVATIONS,
+    payload: reservations
+});
