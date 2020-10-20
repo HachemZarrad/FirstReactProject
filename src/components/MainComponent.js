@@ -34,6 +34,8 @@ const mapDispatchToProps = (dispatch) => ({
   postComment: (dishId, rating, comment) => dispatch(postComment(dishId, rating, comment)),
   fetchDishes: () => {dispatch(fetchDishes())},
   resetFeedbackForm: () => { dispatch(actions.reset('feedback'))},
+  resetReservationForm: () => { dispatch(actions.reset('reservation'))},
+  resetFoodOrderForm: () => { dispatch(actions.reset('foodOrder'))},
   fetchComments: () => {dispatch(fetchComments())},
   fetchPromos: () => {dispatch(fetchPromos())},
   fetchLeaders: () => dispatch(fetchLeaders()),
@@ -44,7 +46,9 @@ const mapDispatchToProps = (dispatch) => ({
   postFavorite: (dishId) => dispatch(postFavorite(dishId)),
   deleteFavorite: (dishId) => dispatch(deleteFavorite(dishId)),
   fetchFoodOrders: () => {dispatch(fetchFoodOrders())},
-  fetchReservations: () => {dispatch(fetchReservations())}
+  postFoodOrder: (firstname, lastname, phoneNumber, city, time, adress, comment) => {dispatch(postFoodOrder(firstname, lastname, phoneNumber, city, time, adress, comment))},
+  postReservation: (firstname, lastname, phoneNumber, email, date, time, guestsNumber, comment) => {dispatch(postReservation(firstname, lastname, phoneNumber, email, date, time, guestsNumber, comment))},
+  fetchReservations: () => {dispatch(fetchReservations())},
 
 });
 
@@ -87,7 +91,7 @@ class Main extends Component {
           comments={this.props.comments.comments.filter((comment) => comment.dish === match.params.dishId)}
           commentsErrMess={this.props.comments.errMess}
           postComment={this.props.postComment}
-          favorite={this.props.favorites.favorites.dishes.some((dish) => dish._id === match.params.dishId)}
+          //favorite={this.props.favorites.favorites.dishes.some((dish) => dish._id === match.params.dishId)}
           postFavorite={this.props.postFavorite}
           />
         :
@@ -124,8 +128,8 @@ class Main extends Component {
           <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
             <Switch>
               <Route path="/home" component={HomePage} />
-              <Route path="/reservation" component={() => <Reservation />} />
-              <Route path="/order" component={() => <Order />} />
+              <Route path="/reservation" component={() => <Reservation postReservation={this.props.postReservation}/>} />
+              <Route path="/order" component={() => <Order postFoodOrder={this.props.postFoodOrder}/>} />
               <Route exact path='/aboutus' component={() => <About leaders={this.props.leaders} />}  />
               <Route exact path="/menu" component={() => <Menu dishes={this.props.dishes} />} />
               <Route path="/menu/:dishId" component={DishWithId} />

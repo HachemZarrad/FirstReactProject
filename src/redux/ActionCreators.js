@@ -211,7 +211,7 @@ export const postFeedback = (feedback) => (dispatch) => {
             throw error;
       })
     .then(response => response.json())
-    .then(response => { console.log('Feedback', response); alert('Thank you for your feedback!\n'+JSON.stringify(response)); })
+    .then(response => { console.log('Feedback', response); alert('Thank you for your feedback!\n'+JSON.stringify(response)); console.log("feeds1,",feedback)})
     .catch(error =>  { console.log('Feedback', error.message); alert('Your feedback could not be posted\nError: '+error.message); });
 };
 
@@ -401,6 +401,33 @@ export const addFavorites = (favorites) => ({
 });
 
 
+export const postFoodOrder = (foodOrder) => (dispatch) => {
+        
+    return fetch(baseUrl + 'orderFood', {
+        method: "POST",
+        body: JSON.stringify(foodOrder),
+        headers: {
+          "Content-Type": "application/json"
+        },
+        credentials: "same-origin"
+    })
+    .then(response => {
+        if (response.ok) {
+          return response;
+        } else {
+          var error = new Error('Error ' + response.status + ': ' + response.statusText);
+          error.response = response;
+          throw error;
+        }
+      },
+      error => {
+            throw error;
+      })
+    .then(response => response.json())
+    .then(response => { console.log('foodOrder', response); alert('Thank you for your order, you will be notifed once the request is confirmed!\n'+JSON.stringify(response)); })
+    .catch(error =>  { console.log('foodOrder', error.message); alert('Your order could not be sent to the restaurant\nError: '+error.message); });
+};
+
 export const fetchFoodOrders = () => (dispatch) => {
     dispatch(foodOrdersLoading(true));
 
@@ -439,6 +466,34 @@ export const addFoodOrders = (foodOrders) => ({
     payload: foodOrders
 });
 
+
+
+export const postReservation = (reservation) => (dispatch) => {
+        
+    return fetch(baseUrl + 'booking', {
+        method: "POST",
+        body: JSON.stringify(reservation),
+        headers: {
+          "Content-Type": "application/json"
+        },
+        credentials: "same-origin"
+    })
+    .then(response => {
+        if (response.ok) {
+          return response;
+        } else {
+          var error = new Error('Error ' + response.status + ': ' + response.statusText);
+          error.response = response;
+          throw error;
+        }
+      },
+      error => {
+            throw error;
+      })
+    .then(response => response.json())
+    .then(response => { console.log('reservation', response); alert('Welcome to our restaurant, you will be notifed once the reservation is confirmed!\n'+JSON.stringify(response)); })
+    .catch(error =>  { console.log('reservation', error.message); alert('Your reservation could not be sent to the restaurant\nError: '+error.message + "res"+ reservation);console.log("reservation1",reservation); });
+};
 
 export const fetchReservations = () => (dispatch) => {
     dispatch(reservationsLoading(true));

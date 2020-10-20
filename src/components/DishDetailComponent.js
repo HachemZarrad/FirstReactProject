@@ -96,8 +96,8 @@ import { FadeTransform, Fade, Stagger } from 'react-animation-components';
             <div>
                 <Button outline onClick={this.toggleModal}><span className="fa fa-pencil fa-lg"></span> Submit Comment</Button>
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-                <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
-                <ModalBody>
+                <ModalHeader toggle={this.toggleModal} className = "LoginModal">Submit Comment</ModalHeader>
+                <ModalBody className = "LoginModal">
                     <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
                         <Row className="form-group">
                             <Col>
@@ -119,7 +119,7 @@ import { FadeTransform, Fade, Stagger } from 'react-animation-components';
                             </Col>
                         </Row>
                         <Button type="submit" className="bg-primary">
-                            Submit
+                            SUBMIT
                         </Button>
                     </LocalForm>
                 </ModalBody>
@@ -130,7 +130,7 @@ import { FadeTransform, Fade, Stagger } from 'react-animation-components';
     
     }
 
-    const DishDetail = (props) => {
+    const DishDetail = (props) => {        
         if (props.isLoading) {
             return(
                 <div className="container">
@@ -151,8 +151,11 @@ import { FadeTransform, Fade, Stagger } from 'react-animation-components';
         }
         else if (props.dish != null)        
             return (
-                <div className="container">
-                    <div className="row">
+                <div className="dishDetailBack">
+                   <div className = "jumbotron">
+
+                   </div>
+                    <div className="row marginPicCom">
                         <Breadcrumb>
                             <BreadcrumbItem><Link to='/menu'>Menu</Link></BreadcrumbItem>
                             <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>
@@ -162,7 +165,7 @@ import { FadeTransform, Fade, Stagger } from 'react-animation-components';
                             <hr />
                         </div>
                     </div>
-                    <div className="row">
+                    <div className="row marginPicCom">
                         <RenderDish dish={props.dish} favorite={props.favorite} postFavorite={props.postFavorite} />
                         <RenderComments comments={props.comments}
                             postComment={props.postComment}

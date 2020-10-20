@@ -1,19 +1,32 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import { Label, Button, Row, Col } from 'reactstrap';
 import { Control, Form, Errors } from 'react-redux-form';
-import DatePicker from 'react-datepicker';
 
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => (val) && (val.length >= len);
 const isNumber = (val) => !isNaN(Number(val));
-const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
-
-function Ordering()  {
 
 
-        const [selectedDate, setSelectedDate] = useState(null);
+
+class Ordering extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+
+handleSubmit = (values) => {
+    this.props.postFoodOrder(values);
+    //this.props.resetFeedbackForm();
+}
+
+
+render()  {
+
         return(
           <div className=" reservationBack marginReservBack">
               <div className = "marginBack">
@@ -25,9 +38,9 @@ function Ordering()  {
                     <p className="ReserText">Some areas.....</p>
               </div>
               <div className="col-12 col-md-6 ReservationForm">
-                        <Form model="feedback" onSubmit={(values) => this.handleSubmit(values)}>
-                            <Label htmlFor="firstname" md={2} className = "marginFirstName">First Name*</Label>
-                            <Label htmlFor="lastname" md={2} className = "marginLastName">Last Name*</Label>
+                        <Form model ="foodOrder" onSubmit={(values) => this.handleSubmit(values)}>
+                            <Label htmlFor="firstname" md={3} className = "marginFirstName">First Name*</Label>
+                            <Label htmlFor="lastname" md={3} className = "marginLastName">Last Name*</Label>
                             <Row className="form-group">
                                 
                                 <Col md={5}>
@@ -71,9 +84,9 @@ function Ordering()  {
                             </Row>
                             
                             <Row className="form-group ">
-                                <Label htmlFor="telnum" md={3}>Phone Number*</Label> 
+                                <Label htmlFor="phoneNumber" md={3}>Phone Number*</Label> 
                                 <Col md={10}>
-                                    <Control.text model=".telnum" id="telnum" name="telnum"
+                                    <Control.text model=".phoneNumber" id="phoneNumber" name="phoneNumber"
                                        
                                         className="form-control input"
                                         validators={{
@@ -82,7 +95,7 @@ function Ordering()  {
                                          />
                                     <Errors
                                         className="text-danger"
-                                        model=".telnum"
+                                        model=".phoneNumber"
                                         show="touched"
                                         messages={{
                                             required: 'Required',
@@ -96,42 +109,42 @@ function Ordering()  {
                             <Row className="form-group ">
                                 <Label htmlFor="city" md={3}>City*</Label>
                                 <Col md={10}>
-                                    <Control.text model=".email" id="email" name="email"
+                                    <Control.text model=".city" id="city" name="city"
                                       
                                         className="form-control input"
                                         validators={{
-                                            required, validEmail
+                                            required
                                         }}
                                          />
                                     <Errors
                                         className="text-danger"
-                                        model=".email"
+                                        model=".city"
                                         show="touched"
                                         messages={{
-                                            required: 'Required',
-                                            validEmail: 'Invalid Email Address'
+                                            required: 'Required'
                                         }}
                                      />
                                 </Col>
                             </Row>
                              
                             <Row className="form-group ">
-                                <Label htmlFor="email" md={3}>Address*</Label>
+                                <Label htmlFor="adress" md={3}>Address*</Label>
                                 <Col md={10}>
-                                    <Control.text model=".email" id="email" name="email"
+                                    <Control.text model=".adress" id="adress" name="adress"
                                       
                                         className="form-control input"
                                         validators={{
-                                            required, validEmail
+                                            required
                                         }}
                                          />
                                     <Errors
                                         className="text-danger"
-                                        model=".email"
+                                        model=".adress"
                                         show="touched"
                                         messages={{
-                                            required: 'Required',
-                                            validEmail: 'Invalid Email Address'
+                                            required: 'Required'
+                                           
+
                                         }}
                                      />
                                 </Col>
@@ -146,7 +159,6 @@ function Ordering()  {
                                             <option>1:00 pm</option>
                                             <option>2:00 pm</option>
                                             <option>3:00 pm</option>
-                                            <span>sdffqs</span>
                                             <option disabled className = "try">Dinner</option>
                                             <option>6:00 pm</option>
                                             <option>7:00 pm</option>
@@ -159,24 +171,14 @@ function Ordering()  {
                             </Row>
                             
                             <Row className="form-group">
-                                <Label htmlFor="email" md={3}>Comments</Label>
+                                <Label htmlFor="comments" md={3}>Comments</Label>
                                 <Col md={10}>
-                                    <Control.text model=".email" id="email" name="email"
+                                    <Control.text model=".comments" id="comments" name="comments"
                                       
                                         className="form-control input"
-                                        validators={{
-                                            required, validEmail
-                                        }}
+                                    
                                          />
-                                    <Errors
-                                        className="text-danger"
-                                        model=".email"
-                                        show="touched"
-                                        messages={{
-                                            required: 'Required',
-                                            validEmail: 'Invalid Email Address'
-                                        }}
-                                     />
+                                   
                                 </Col>
                             </Row>
                            
@@ -195,6 +197,6 @@ function Ordering()  {
         );
     }
 
-
+}
 
 export default Ordering;

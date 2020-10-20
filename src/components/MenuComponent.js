@@ -6,14 +6,18 @@ import { baseUrl } from '../shared/baseUrl';
 
     function RenderMenuItem({ dish, onClick }) {
         return(
+            <div className = "row">
             <Card>
                 <Link to={`/menu/${dish._id}`} >
-                    <CardImg width="100%" src={baseUrl + dish.image} alt={dish.name} />
-                    <CardImgOverlay>
-                        <CardTitle>{dish.name}</CardTitle>
-                    </CardImgOverlay>
+                    <CardImg width="10%" src={baseUrl + dish.image} alt={dish.name} />
                 </Link>
             </Card>
+            <div>
+                <p className = "dishTitle">{dish.name} </p>
+                <p className = "marginCategory">{dish.category}</p>          
+          </div>
+                <p>${dish.price}</p>
+        </div>
         );
     }
 
@@ -47,13 +51,13 @@ import { baseUrl } from '../shared/baseUrl';
         }
         else
             return (
-                <div className = "menuBackground">
+                <div className=" menuBackground">
                  <div className = "marginBack">
                     <img src="assets/images/h7.jpg" height="900" width="1600"/> 
                     <h1 className = "menuTitle">Menu</h1>
                  </div>
-                <div className="container">
-                    <div className="row">
+                <div className="container menuBackground marginbread">
+                    <div className="row ">
                         <Breadcrumb>
                             <BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem>
                             <BreadcrumbItem active>Menu</BreadcrumbItem>

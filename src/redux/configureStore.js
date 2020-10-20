@@ -10,7 +10,7 @@ import { FoodOrders } from './foodOrders';
 import { Auth } from './auth';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import { InitialFeedback } from './forms';
+import { InitialFeedback, InitialFoodOrder, InitialReservation} from './forms';
 
 
 export const ConfigureStore = () => {
@@ -25,7 +25,9 @@ export const ConfigureStore = () => {
             reservations: Reservations,
             favorites,   
             ...createForms({
-                feedback: InitialFeedback
+                feedback: InitialFeedback,
+                reservation: InitialReservation,
+                foodOrder: InitialFoodOrder
             })
         }),
         applyMiddleware(thunk, logger)

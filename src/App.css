@@ -20,7 +20,8 @@
 .jumbotron {
     padding:70px 30px 70px 30px;
     margin:0px auto;
-    background: #9575CD ;
+    margin-bottom: 60px;
+    background: #3a424e ;
     color:floralwhite;
 }
 
@@ -127,6 +128,7 @@ address{
 
 .menuBackground{
     background-color: #f1eee8;
+    
 }
 
 .LoginModal{
@@ -146,7 +148,7 @@ address{
 }
 
 .marginLastName{
-    margin-left: 190px;
+    margin-left: 126px;
 }
 
 .marginTime{
@@ -198,5 +200,38 @@ address{
     color: #a68f71;
     font-weight: bold;
     font-style: italic;
+}
+
+.dishTitle{
+    text-decoration-line: underline;
+    font-style: italic;
+    font-weight: bold;
+    padding-right: 30px;
+    margin-left: 30px;
+}
+.marginCategory{
+    margin-left: 30px;
+}
+
+.marginbread{
+    margin-top: -60px;
+}
+
+.marginHr{
+    margin-bottom: 60px;
+}
+
+.description{
+    font-size: x-small;
+}
+.dishDetailBack{
+   background-color:  #f1eee8;
+   margin-top: -130px;
+   padding-bottom: 60px;
+  
+}
+
+.marginPicCom{
+    margin-left: 250px;
 }
 
